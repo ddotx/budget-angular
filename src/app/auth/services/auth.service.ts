@@ -36,7 +36,8 @@ export class AuthService {
   }
 
   confirm(email: string, code: string): Observable<void> {
-    return this.http.get<any>(`${config.authUrl}/confirm?email=${email}&code=${code}`);
+    // return this.http.get<any>(`${config.authUrl}/confirm?email=${email}&code=${code}`);
+    return this.http.post<any>(`${config.authUrl}/confirm?`, { email, code });
   }
 
   login(user: User): Observable<User> {
